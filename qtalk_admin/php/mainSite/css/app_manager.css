@@ -1,0 +1,145 @@
+@import "reset.css";
+
+body{
+    text-align: center;
+}
+
+.l-wrapper{
+    width:1170px;
+    margin: 0 auto;
+    background-color: #FFF;
+    margin-top: 30px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.l-wrapper-header{
+    width: 100%;
+    height: 10px;
+    background-color: #000;
+}
+
+.l-wrapper ul .l-app-item{
+    float: left;
+    width: 350px;
+    height: 235px;
+    margin-top: 30px;
+    margin-left: 30px;
+    background: url(../images/bg_case_f.png) 0 bottom no-repeat;
+}
+
+.l-wrapper .app-item{
+    margin-top: 0;
+    width: 350px;
+    height: 220px;
+    background: url(../images/app_item_bg.png) 0 bottom no-repeat;
+    padding: 15px;
+}
+
+.l-wrapper .app-item:hover{
+    -webkit-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    transform: translateY(-15px);
+}
+
+.l-wrapper .app-item .app-item-title{
+    overflow: hidden;
+    position: relative;
+}
+
+.l-wrapper .app-item .app-item-title .app-item-icon{
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.l-wrapper .app-item .app-item-title .app-item-btn{
+    position: absolute;
+    right: 10px;
+    top: 50px;
+}
+
+.l-wrapper .app-item .app-item-title .app-item-btn a,
+.l-wrapper .app-item .app-item-title .app-item-btn a:visited{
+    display: block;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    border: 1px solid #d1d1d1;
+    font-weight: 600;
+}
+
+.l-wrapper .app-item .app-item-title .app-item-btn a:hover{
+    background-color: #42CF94;
+    color: #fff;
+    border: none;
+}
+
+
+.l-wrapper .app-item .app-item-title  .app-item-info{
+    margin-left: 120px;
+    text-align: left;
+}
+
+.l-wrapper .app-item .app-item-title .app-item-info .app-item-name{
+    font-size: 16px;
+    height: 23px;
+    line-height: 23px;
+    overflow: hidden;
+    display: block;
+    margin-top: 5px;
+}
+
+.l-wrapper .app-item .app-item-title .app-item-info .app-item-time{
+    font-size: 14px;
+    line-height: 20px;
+    color: #333;
+    margin-top: 10px;
+    display: block;
+}
+
+.l-wrapper .app-item .app-item-title .app-item-info .app-item-extend{
+    font-size: 12px;
+    line-height: 20px;
+    display: block;
+    margin-top: 15px;
+    color: #666;
+}
+
+.l-wrapper .app-item .app-item-desc{
+    margin-top: 10px;
+    font-size: 13px;
+    text-align: left;
+    line-height: 20px;
+    max-height: 40px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.l-wrapper .app-item .app-item-desc .app-item-title{
+    font-weight: bold;
+    color: #f60;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.l-wrapper .app-item .app-item-desc .app-item-content{
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.l-wrapper .app-item .app-item-edition{
+    text-align: left;
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 10px;
+}

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+
+real_path=`dirname $(readlink -f $0)`
+base_path=`dirname $real_path`
+
+workdir_in_docker=/var/www/html
+logs=/etc/httpd/logs
+
+mkdir -p ${base_path}/logs
+
+       #-v ${base_path}/conf/php.d:/usr/local/etc/php/conf.d \
+       #-it --rm=true \
+docker run --net=host \
+       -d \
+       --name=php \
+       --restart=always \
+       -e TZ=Asia/Shanghai \
+	-v ${base_path}/conf/php.ini:/usr/local/etc/php/php.ini \
+       -v ${base_path}/conf/apache2/apache2.conf:/etc/apache2/apache2.conf \
+       -v ${base_path}/conf/apache2/conf.d:/etc/apache2/sites-enabled/ \
+       -v ${base_path}/logs:$logs \
+       -v ${base_path}/qtalk_php:$workdir_in_docker \
+       php:5.6-apache

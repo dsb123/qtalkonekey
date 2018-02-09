@@ -1,0 +1,117 @@
+@import "reset.css";
+
+:root{
+    --content-color:#a1a1a1;
+}
+
+.pg-footer{
+    width: 100%;
+    min-width: 1200px;
+    background: #0f1014;
+    text-align: center;
+    clear: both;
+}
+
+.pg-footer .title{
+    color: white;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.pg-footer .content{
+    color: #a1a1a1;
+    font-size: 12px;
+}
+
+.pg-footer a{
+    color: #a1a1a1;
+}
+
+.pg-footer li{
+    text-align: left;
+    line-height: 20px;
+    height: 20px;
+}
+
+/*分割线*/
+.pg-footer hr{
+    border: none;
+    height: 1px;
+    background-color: #a1a1a1;
+}
+
+/*版权*/
+.pg-footer-copyright{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 12px;
+    color: #a1a1a1;
+}
+
+.pg-footer-doc{
+    width: auto;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/*团队介绍*/
+.pg-footer-doc .team_introduction{
+    width:350px;
+    height: auto;
+    margin: 0 auto;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.pg-footer-doc .team_introduction .title{
+
+}
+
+.pg-footer-doc .team_introduction .content{
+}
+
+.pg-footer-doc .team_introduction .content>img{
+    width: 120px;
+    height: 65px;
+    float: left;
+    margin-right: 10px;
+}
+
+.pg-footer-doc .team_introduction .content .center_center{
+    float: left;
+}
+
+/*帮助*/
+.pg-footer-doc .help{
+    width: 150px;
+    height: auto;
+    margin: 0 auto;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.pg-footer-doc .help .title{
+
+}
+
+.pg-footer-doc .help .content{
+    text-align: center;
+    padding: 0 50px 0 50px;
+}
+
+/*联系方式*/
+.pg-footer-doc .contact_information{
+    width:140px;
+    height: auto;
+    margin: 0 auto;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.pg-footer-doc .contact_information .title{
+
+}
+
+.pg-footer-doc .contact_information .content{
+}

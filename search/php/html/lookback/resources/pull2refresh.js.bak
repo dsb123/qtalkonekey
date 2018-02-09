@@ -1,0 +1,84 @@
+var myScroll,
+    pullUpEl, pullUpOffset,
+    generatedCount = 0;
+var needLoadMore = true;
+
+function getSearch()
+{
+    if (!$("#input-1").val())
+    {
+        return false;
+    }
+    needLoadMore = true;
+    generatedCount = 0;
+    $("#content").empty();
+    pullUpAction();
+};
+
+
+function pullUpAction () {
+         if (!$("#input-1").val()||!needLoadMore) {
+            myScroll.refresh();
+            return false;
+        }
+        $.ajax({
+            type: "GET",
+            url: "main_controller.php?action=search_single_msg&method=search&from="+generatedCount+"&term="+$("#input-1").val(),
+            dataType: "json",
+            success: function (msg) {   //json数据类型
+                if(!msg.ret || msg.content == null){
+                    return false;
+                }
+                generatedCount +=msg.offset;
+                $(msg.content).appendTo($("#content"));
+                $("#content").highlight($("#input-1").val());
+                needLoadMore =  msg.hasnext;
+                if(!msg.hasnext)
+                {
+                        pullUpEl.querySelector('.pullUpLabel').innerHTML = '没有更多数据了';
+                }
+                myScroll.refresh();
+                return false;
+            }
+        });
+}
+function loaded() {
+        pullUpEl = document.getElementById('pullUp');
+        pullUpOffset = pullUpEl.offsetHeight;
+
+        myScroll = new iScroll('wrapper', {
+                useTransition: true,
+                topOffset: 51,
+                onRefresh: function () {
+                        if (pullUpEl.className.match('loading')) {
+                                pullUpEl.className = '';
+                                pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多';
+                        }
+                },
+                onScrollMove: function () {
+                       if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+                                pullUpEl.className = 'flip';
+                                pullUpEl.querySelector('.pullUpLabel').innerHTML = '释放刷新';
+                                this.maxScrollY = this.maxScrollY;
+                        } else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
+                                pullUpEl.className = '';
+                                pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多';
+                                this.maxScrollY = pullUpOffset;
+                        }
+                },
+                onScrollEnd: function () {
+                        if (pullUpEl.className.match('flip')) {
+                                pullUpEl.className = 'loading';
+                                pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Loading...';
+                                pullUpAction(); // Execute custom function (ajax call?)
+                        }
+                }
+        });
+
+        setTimeout(function () { document.getElementById('wrapper').style.left = '0'; }, 800);
+}
+
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
+

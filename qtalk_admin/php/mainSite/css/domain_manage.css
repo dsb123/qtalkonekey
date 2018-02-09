@@ -1,0 +1,172 @@
+@import "reset.css";
+
+html,body{
+    height: 100%;
+}
+#container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+}
+header{
+    flex: 0 0 auto;
+}
+.main{
+    flex: 1 0 auto;
+}
+footer{
+    flex: 0 0 auto;
+}
+
+h1{
+    font-size: 18px;
+}
+
+.main_bg{
+    background: #eaeaea;
+    text-align: center;
+}
+
+.domain_info{
+    width: 60%;
+    max-width: 1200px;
+    background: #ffffff;
+    border: 1px solid #c1c1c1;
+    margin: 30px auto 30px auto;
+    padding: 30px 0 50px 1%;
+}
+
+.domain_info .domain_title{
+    text-align: left;
+    padding-left: 1%;
+}
+
+.domain_info .domain_title .title{
+    font-size: 24px;
+}
+
+.domain_info .domain_title .sub_title{
+    font-size: 14px;
+    color: #a1a1a1;
+}
+
+.domain_list{
+    width: 100%;
+    display: block;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.domain_item{
+    width: 31%;
+    height: 300px;
+    min-width: 200px;
+    background: #f1f1f1;
+    display: inline-table;
+    margin: 10px 1% 10px 0;
+    text-align: center;
+}
+
+.domain_item .domain_item_title{
+    font-size: 24px;
+}
+
+.domain_item .domain_item_title .domain_link{
+    font-size: 24px;
+}
+
+.domain_item .domain_item_add_title{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.domain_item .domain_item_title a{
+    color: #41CF94;
+    text-decoration: underline;
+}
+
+.domain_item .domain_item_desc{
+    font-size: 14px;
+    color: #a1a1a1;
+    max-height: 32px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+
+.domain_item .domain_item_qrcode{
+    width: 156px;
+    height: 156px;
+    margin: 0 auto;
+    padding-top: 14px;
+}
+
+.domain_item .domain_item_more{
+    font-size: 10px;
+    color: #a1a1a1;
+}
+
+.domain_item .domain_delete{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    /*background: #ff0000;*/
+    float: right;
+    /*padding-top: 3px;*/
+    background-image: url("../images/domain_close.png");
+    -moz-background-image: url("../images/domain_close.png");
+    -o-background-image: url("../images/domain_close.png");
+    -webkit-background-image: url("../images/domain_close.png");
+    -webkit-background-size: 16px 16px;
+    background-size: 16px 16px;
+    background-position: center;
+    background-repeat:no-repeat;
+}
+
+.domain_item .domain_notice{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    /*background: #ff0000;*/
+    float: left;
+    /*padding-top: 3px;*/
+    background-image: url("../images/系统消息.png");
+    -moz-background-image: url("../images/系统消息.png");
+    -o-background-image: url("../images/系统消息.png");
+    -webkit-background-image: url("../images/系统消息.png");
+    -webkit-background-size: 16px 16px;
+    background-size: 16px 16px;
+    background-position: center;
+    background-repeat:no-repeat;
+}
+
+.domain_item .domain_item_content{
+    margin-top: 30px;
+}
+
+.domain_add {
+    color: #999999;
+}
+
+.domain_add:hover{
+    color: #ffffff;
+    background: #41CF94;
+}
+
+.domain_item .domain_item_content .domain_item_add{
+    width: 128px;
+    height: 128px;
+    margin: 0 auto;
+    background: #ffffff;
+    text-align: center;
+    display: block;
+}
+
+.domain_item .domain_item_content .domain_item_add>img{
+    width: 90px;
+    height: 90px;
+    margin: 19px auto;
+    background: #ffffff;
+    vertical-align: middle;
+}
+

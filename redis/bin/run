@@ -1,0 +1,11 @@
+#!/bin/bash
+real_path=`dirname $(readlink -f $0)`
+base_path=`dirname $real_path`
+
+docker run --net=host \
+           -d \
+           --restart=always \
+           --name qtalk-redis \
+	-e TZ=Asia/Shanghai  \
+	-v ${base_path}/conf/redis.conf:/etc/redis.conf \
+           redis /etc/redis.conf

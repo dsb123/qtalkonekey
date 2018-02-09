@@ -1,0 +1,150 @@
+body{
+            color: #333;
+            background: #e7e8eb !important;
+        }
+        .c_box{
+            margin: auto;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #dedede;
+        }
+        .container {
+        width: 1170px;
+        }
+        .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+        float: left;
+        position: relative;
+        }
+        .col-sm-3 {
+        width: 25%;
+        }
+        .col-sm-4 {
+        width: 33.33333333%;
+        }
+        .col-sm-9 {
+        width: 66.66666667%;
+        }
+        .col-sm-9 {
+        width: 75%;
+        }
+        .form-horizontal .control-label {
+        padding-top: 7px;
+        margin-bottom: 0;
+        text-align: right;
+        }
+
+        #navbar-link-x {
+        color: white;
+        vertical-align: top;
+        display: none;
+        font-size: 14px;
+        }
+
+        #navbar-b2b-logo {
+        display: none;
+        }
+
+        #mask {
+        background: #000;
+        filter: alpha(opacity=50); /* IE的透明度 */
+        opacity: 0.5;  /* 透明度 */
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 99; /* 此处的图层要大于页面 */
+        }
+        #help-detail {
+        opacity: 1;
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        width: 50%;
+        height: 50%;
+        z-index: 100;
+        }
+        label{
+            font-weight: 500 !important;
+        }
+
+        .alertYellow{
+
+            background: #fffada !important;
+            border: 1px solid #ede7c1 !important;
+            border-radius: 4px !important;
+            font-size:14px !important;
+            color:#786700 !important;
+            text-align:center !important;
+            width: 852px !important;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .alertYellow a{
+            color:#38adff !important;
+        }
+        
+        ul.step-nav{
+            display:inline-block
+        }
+        ul.step-nav,ul.step-nav li{
+            list-style: none;
+        }
+        .step-nav li{ 
+            float: left; 
+            width: 284px; 
+            height: 54px;
+            line-height: 54px; 
+            text-align: center; 
+            color: #000; 
+            font-size: 18px; 
+            background: #ECEFF4; 
+            margin-right: 5px; 
+            position: relative;
+            z-index: 49;
+        }
+        .step-nav li:before,.step-nav li:after{   
+            position: absolute; 
+            content: ''; 
+            width: 0; 
+            height: 0; 
+            border-style: solid;  
+        }
+        .step-nav li:before{ 
+            left:0; 
+            border-width: 27px 0 27px 30px; 
+            border-color:transparent transparent transparent #fff;
+        }
+        .step-nav li:after{ 
+            border-width: 27px 0 27px 30px; 
+            border-color:transparent transparent transparent #ECEFF4; 
+            right: -30px; 
+            top:0;
+            z-index: 50;
+        }
+        .step-nav li.step-nav-first{ 
+            z-index: 50;
+        }
+        .step-nav li.step-nav-first:before{ 
+            border-width: 0; 
+            padding-left: 0;
+        }
+        .step-nav li.on:after{ 
+            border-width: 27px 0 27px 30px; ; 
+            padding-left: 0;
+            border-color:transparent transparent transparent #00a1e9; 
+        }
+        .step-nav li.step-nav-last{
+            z-index: 48;
+        }
+        .step-nav li.step-nav-last:after{
+            border-width: 0;
+        }
+        .step-nav li.on{ 
+            background: #00a1e9;
+            color: #fff;
+        }
+        .step-nav li.on:before{
+            border-left-color: #fff;
+        }

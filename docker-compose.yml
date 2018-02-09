@@ -1,0 +1,260 @@
+version: '2'
+
+services:
+  postgres:
+    container_name: <?qtalk postgres>
+    hostname: <?qtalk postgres>
+    restart: always
+    image: postgres:10.1
+    volumes:
+    - <?QTALK base_dir>/postgresql/data:/var/lib/postgresql/data
+    - <?QTALK base_dir>/postgresql/ejabberd.dump:/ejabberd.dump
+    ports:
+        - "5432:5432"
+    networks:
+        - qtalknet
+    environment:
+        - TZ=Asia/Shanghai
+  elasticsearch:
+    container_name: <?qtalk elasticsearch>
+    hostname: <?qtalk elasticsearch>
+    restart: always
+    image: elasticsearch:2.4
+    volumes:
+    - <?QTALK base_dir>/elasticsearch/esdata:/usr/share/elasticsearch/data
+    - <?QTALK base_dir>/elasticsearch/config:/usr/share/elasticsearch/config
+    ports:
+        - "9200:9200"
+        - "9300:9300"
+    networks:
+        - qtalknet
+    environment:
+        - TZ=Asia/Shanghai
+  redis:
+    container_name: <?qtalk redis>
+    hostname: <?qtalk redis>
+    restart: always
+    image: redis:latest
+    command:
+    - /etc/redis.conf
+    volumes:
+    - <?QTALK base_dir>/redis/conf/redis.conf:/etc/redis.conf
+    ports:
+      - "6379:6379"
+    networks:
+        - qtalknet
+    environment:
+        - TZ=Asia/Shanghai
+  SWIFT_DATA:
+    container_name: SWIFT_DATA 
+    image: busybox
+    volumes:
+    - /srv
+    environment:
+        - TZ=Asia/Shanghai
+  swift:
+    container_name: <?qtalk swift>
+    hostname: <?qtalk swift>
+    restart: always
+    image: morrisjobke/docker-swift-onlyone
+    volumes_from:
+    - SWIFT_DATA:rw
+    ports:
+      - "8080:8080"
+    networks:
+        - qtalknet
+    environment:
+        - TZ=Asia/Shanghai
+  swift-nginx:
+    container_name: <?qtalk swift-nginx>
+    hostname: <?qtalk swift-nginx>
+    restart: always
+    image: openresty/openresty:trusty
+    volumes:
+    - <?QTALK base_dir>/swift/nginx/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+    - <?QTALK base_dir>/swift/nginx/conf.d:/usr/local/openresty/nginx/conf/conf.d
+    - <?QTALK base_dir>/swift/nginx/logs:/usr/local/openresty/nginx/logs
+    ports:
+      - "8088:8088"
+    networks:
+        - qtalknet
+    environment:
+        - TZ=Asia/Shanghai
+  qfproxy:
+    container_name: <?qtalk qfproxy>
+    hostname: <?qtalk qfproxy>
+    restart: always
+    image: tomcat:8.0.20-jre8
+    volumes:
+    - <?QTALK base_dir>/qfproxy/qfproxy:/usr/local/tomcat/webapps/qfproxy
+    - <?QTALK base_dir>/qfproxy/logs:/usr/local/tomcat/logs
+    - <?QTALK base_dir>/qfproxy/server.xml:/usr/local/tomcat/conf/server.xml
+    ports:
+      - "8000:8000"
+    networks:
+        - qtalknet
+    environment:
+        - TZ=Asia/Shanghai
+    depends_on:
+        - "redis"
+        - "postgres"
+  qtalk_http_service:
+    container_name: <?qtalk qtalk_http_service>
+    hostname: <?qtalk qtalk_http_service>
+    restart: always
+    image: tomcat:8.0.20-jre8
+    volumes:
+    - <?QTALK base_dir>/qtalk_http_service/qtalk_http_service:/usr/local/tomcat/webapps/qtalk_http_service
+    - <?QTALK base_dir>/qtalk_http_service/logs:/usr/local/tomcat/logs
+    - <?QTALK base_dir>/qtalk_http_service/server.xml:/usr/local/tomcat/conf/server.xml
+    ports:
+      - "9888:9888"
+    networks:
+        - qtalknet
+    environment:
+        - TZ=Asia/Shanghai
+    depends_on:
+        - "redis"
+        - "postgres"
+  qtalk2es:
+    container_name: <?qtalk qtalk2es>
+    hostname: <?qtalk qtalk2es>
+    restart: always
+    image: tomcat:8.0.20-jre8
+    volumes:
+    - <?QTALK base_dir>/qtalk2es/qtalk2es:/usr/local/tomcat/webapps/qtalk2es
+    - <?QTALK base_dir>/qtalk2es/logs:/usr/local/tomcat/logs
+    - <?QTALK base_dir>/qtalk2es/server.xml:/usr/local/tomcat/conf/server.xml
+    ports:
+      - "9988:9988"
+    networks:
+        - qtalknet
+    environment:
+        - TZ=Asia/Shanghai
+    depends_on:
+        - "redis"
+        - "postgres"
+  php:
+    container_name: <?qtalk php>
+    hostname: <?qtalk php>
+    restart: always
+    image: php:5.6-apache-pgsql-redis
+    volumes:
+    - <?QTALK base_dir>/php/conf/php.ini:/usr/local/etc/php/php.ini
+    - <?QTALK base_dir>/php/conf/apache2/apache2.conf:/etc/apache2/apache2.conf
+    - <?QTALK base_dir>/php/conf/apache2/conf.d:/etc/apache2/sites-enabled
+    - <?QTALK base_dir>/php/logs:/etc/httpd/logs
+    - <?QTALK base_dir>/php/qtalk_php:/var/www/html
+    ports:
+      - "9999:9999"
+    networks:
+        - qtalknet
+    environment:
+        - TZ=Asia/Shanghai
+  qtalk_admin:
+    container_name: <?qtalk qtalk_admin>
+    hostname: <?qtalk qtalk_admin>
+    restart: always
+    image: php:5.6-apache-pgsql-redis
+    volumes:
+    - <?QTALK base_dir>/qtalk_admin/conf/php.ini:/usr/local/etc/php/php.ini
+    - <?QTALK base_dir>/qtalk_admin/conf/apache2/apache2.conf:/etc/apache2/apache2.conf
+    - <?QTALK base_dir>/qtalk_admin/conf/apache2/conf.d:/etc/apache2/sites-enabled
+    - <?QTALK base_dir>/qtalk_admin/logs:/etc/httpd/logs
+    - <?QTALK base_dir>/qtalk_admin/php:/var/www/html
+    ports:
+      - "9990:9990"
+    networks:
+        - qtalknet
+    environment:
+        - TZ=Asia/Shanghai
+    depends_on:
+        - "redis"
+        - "postgres"
+  search:
+    container_name: <?qtalk search>
+    hostname: <?qtalk search>
+    restart: always
+    image: php:5.6-apache-pgsql-redis
+    volumes:
+    - <?QTALK base_dir>/search/conf/php.ini:/usr/local/etc/php/php.ini
+    - <?QTALK base_dir>/search/conf/apache2/apache2.conf:/etc/apache2/apache2.conf
+    - <?QTALK base_dir>/search/conf/apache2/conf.d:/etc/apache2/sites-enabled
+    - <?QTALK base_dir>/search/logs:/etc/httpd/logs
+    - <?QTALK base_dir>/search/php:/var/www/html
+    ports:
+      - "9991:9991"
+    networks:
+        - qtalknet
+    environment:
+        - TZ=Asia/Shanghai
+    depends_on:
+        - "redis"
+        - "postgres"
+  nginx:
+    container_name: <?qtalk nginx>
+    hostname: <?qtalk nginx>
+    restart: always
+    image: openresty/openresty:trusty
+    volumes:
+    - <?QTALK base_dir>/nginx/conf/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+    - <?QTALK base_dir>/nginx/conf/conf.d:/usr/local/openresty/nginx/conf/conf.d
+    - <?QTALK base_dir>/nginx/lua_app:/usr/local/openresty/nginx/lua_app
+    - <?QTALK base_dir>/nginx/logs:/usr/local/openresty/nginx/logs
+    ports:
+      - "80:80"
+    networks:
+        - qtalknet
+    environment:
+        - TZ=Asia/Shanghai
+  qtalk_cowboy_server:
+    container_name: <?qtalk qtalk_cowboy_server>
+    hostname: <?qtalk qtalk_cowboy_server>
+    restart: always
+    image: erlang:17.5
+    command:
+    - /root/qtalk_cowboy_server/bin/start.sh
+    volumes:
+    - <?QTALK base_dir>/qtalk_cowboy_server/qtalk_cowboy_server:/root/qtalk_cowboy_server
+    - <?QTALK base_dir>/qtalk_cowboy_server/bin:/root/qtalk_cowboy_server/bin
+    - <?QTALK base_dir>/qtalk_cowboy_server/config:/root/qtalk_cowboy_server/config
+    - <?QTALK base_dir>/qtalk_cowboy_server/log:/root/qtalk_cowboy_server/log
+    - <?QTALK base_dir>/qtalk_cowboy_server/.erlang.cookie:/root/qtalk_cowboy_server/.erlang.cookie
+    ports:
+      - "10056:10056"
+    networks:
+        - qtalknet
+    environment:
+        - TZ=Asia/Shanghai
+    depends_on:
+        - "redis"
+        - "postgres"
+  ejabberd-hosts:
+    container_name: <?qtalk ejabberd-hosts>
+    hostname: <?qtalk ejabberd-hosts>
+    restart: always
+    image: erlang:19.3
+    command:
+    - /home/q/ejabberd-hosts/sbin/start.sh
+    volumes:
+    - <?QTALK base_dir>/ejabberd-hosts/ejabberd-hosts:/home/q/ejabberd-hosts
+    - <?QTALK base_dir>/ejabberd-hosts/sbin:/home/q/ejabberd-hosts/sbin
+    - <?QTALK base_dir>/ejabberd-hosts/etc:/home/q/ejabberd-hosts/etc
+    - <?QTALK base_dir>/ejabberd-hosts/log:/home/q/ejabberd-hosts/var/log/ejabberd
+    - <?QTALK base_dir>/ejabberd-hosts/.erlang.cookie:/home/q/ejabberd-hosts/.erlang.cookie
+    ports:
+      - "4369:4369"
+      - "5222:5222"
+      - "5223:5223"
+      - "5201:5201"
+      - "5202:5202"
+      - "10050:10050"
+    networks:
+        - qtalknet
+    environment:
+        - TZ=Asia/Shanghai
+    depends_on:
+        - "redis"
+        - "postgres"
+networks:
+   qtalknet:

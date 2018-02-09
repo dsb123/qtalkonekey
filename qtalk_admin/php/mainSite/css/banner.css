@@ -1,0 +1,69 @@
+/** 广告条 **/
+
+.l-wrapper {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto; }
+/*.page-index*/ .pc-mod-banner {
+    /*width: 100%;*/
+    min-width: 1200px;
+    height: 560px;
+    background-color: #1a3b77; }
+
+.pc-mod-index-banner {
+    height: 560px; }
+
+.pc-mod-index-banner .pc-mod-swiper-slide{
+    text-indent: -9999px;
+}
+.pc-mod-banner .pc-mod-swiper-slide {
+    height: 560px;
+    width: 100%; }
+
+.pc-mod-banner-href {
+    display: block;
+    height: 100%;
+    color: #fff; }
+
+.pc-mod-banner-href:hover {
+    color: #fff; }
+
+/*.page-index*/ .pc-mod-swiper-slide-developer {
+    background: #09091d url(../images/index-banner1.png) no-repeat center top;
+    background-size: auto 560px; }
+
+.pc-mod-swiper-slide-billing {
+    background: #0f1947 url(../images/billing-banner1.png) no-repeat center top;
+    background-size: auto 560px; }
+
+.pc-mod-swiper-slide-billing a {
+    display: block;
+    width: 100%;
+    height: 100%; }
+
+.pc-mod-banner-adv {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+}
+
+.pc-mod-index-banner .pc-mod-swiper-pagination-switch {
+    width: 40px;
+    height: 20px;
+    font-size: 0;
+    background: none;
+    margin: 0; }
+
+.pc-mod-index-banner .pc-mod-swiper-pagination-switch:before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background: #fff;
+    opacity: 0.3;
+    filter: alpha(opacity=30); }
+
+.pc-mod-index-banner .pc-mod-swiper-active-switch:before {
+    opacity: 1;
+    filter: alpha(opacity=100); }

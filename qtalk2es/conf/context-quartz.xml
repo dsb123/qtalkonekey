@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- quartz -->
+    <bean name="storeChat2Es" class="com.qunar.qchat.task.StoreChat2Es"/>
+    <bean name="storeMuc2Es" class="com.qunar.qchat.task.StoreMuc2Es"/>
+
+    <bean id="storeChat2EsJob"  class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="storeChat2Es"/>
+        <property name="targetMethod" value="process"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <bean id="storeMuc2EsJob"  class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="storeMuc2Es"/>
+        <property name="targetMethod" value="process"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <bean id="storeChat2EsJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="storeChat2EsJob"/>
+        <property name="cronExpression" value="0/3 * * * * ?"></property>
+    </bean>
+
+    <bean id="storeMuc2EsJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="storeMuc2EsJob"/>
+        <property name="cronExpression" value="0/3 * * * * ?"></property>
+    </bean>
+
+    <bean name="quartzScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="storeChat2EsJobTrigger"/>
+                <ref bean="storeMuc2EsJobTrigger"/>
+            </list>
+        </property>
+    </bean>
+</beans>

@@ -1,0 +1,122 @@
+@import "reset.css";
+
+.login_bg {
+    height: 500px;
+    width: 100%;
+    background-image: url("../images/index/headbg.png");
+    background-size: cover;
+    background-clip: border-box;
+    background-position: bottom;
+    text-align: center;
+}
+
+.login_bg .login {
+    width: 420px;
+    height: 420px;
+    background-color: white;
+    margin: 0 auto;
+    display:inline-block;
+    margin-top: 40px;
+    -webkit-box-shadow: #BBE5EC 0 0 10px;
+    -moz-box-shadow: #BBE5EC 0 0 10px;
+    box-shadow: #BBE5EC 0 0 10px;
+    position: relative;
+}
+
+.login .login_account{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.login .login_account .title{
+    font-size: 36px;
+    margin-top: 40px;
+}
+
+.login .login_account .register{
+    font-size: 14px;
+    color: #616161;
+}
+
+.login .login_account .register a{
+    font-size: 14px;
+    color: #41CF94;
+    margin-top: 16px;
+ }
+
+.login .login_account .user_name{
+    margin: 32px auto 16px  auto;
+    height: 40px;
+    width: 300px;
+}
+
+.login .login_account input[type="text"]{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #f5f5f5;
+    text-indent:16px;
+    font-size: 16px;
+}
+
+.login .login_account .password{
+    margin:0 auto;
+    height: 40px;
+    width: 300px;
+}
+
+.login .login_account input[type="password"]{
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #f5f5f5;
+    text-indent:16px;
+    font-size: 16px;
+}
+
+.login .login_account .forget_pwd{
+    margin: 16px auto;
+    width: 300px;
+    height: 40px;
+    text-align: right;
+}
+
+.login .login_account .forget_pwd a{
+    color: #41CF94;
+    font-size: 14px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #41CF94;
+    border:none;
+}
+
+.btn-primary.active, .btn-primary:active, .btn-primary:focus, .btn-primary:hover, .open > .dropdown-toggle.btn-primary {
+    background-color: #41CF94;
+    opacity: 0.85;
+}
+
+.btn-primary.active, .btn-primary:active, .open > .dropdown-toggle.btn-primary {
+    background-image: none
+}
+
+.btn-primary.disabled, .btn-primary.disabled.active, .btn-primary.disabled:active, .btn-primary.disabled:focus, .btn-primary.disabled:hover, .btn-primary[disabled], .btn-primary[disabled].active, .btn-primary[disabled]:active, .btn-primary[disabled]:focus, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary.active, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:hover {
+    background-color: #38adff;
+    border-color: #357ebd
+}
+
+.btn-login {
+    width: 300px;
+    height: 40px;
+    border-radius: 0;
+    font-size: 16px;
+    margin-top: 16px;
+}
+
+
+.login .login_qrcode{
+    background-color: #00ff00;
+}

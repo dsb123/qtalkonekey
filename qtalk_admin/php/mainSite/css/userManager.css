@@ -1,0 +1,290 @@
+@import "reset.css";
+
+:root{
+    --row-height : 36px;
+}
+
+html,body{
+    height: 100%;
+}
+#container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+}
+header{
+    flex: 0 0 auto;
+}
+.main{
+    flex: 1 0 auto;
+}
+footer{
+    flex: 0 0 auto;
+}
+
+h1{
+    font-size: 18px;
+}
+
+.user_manager_container {
+    width: 1200px;
+    height: auto;
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    margin: 0 auto;
+}
+
+.user_manager_container .search {
+    margin: 0 auto;
+    width: 90%;
+    text-align: left;
+    padding-bottom: 15px;
+}
+
+/* 输入框 */
+input[type="text"].input_search {
+    width: 40%;
+    height: 32px;
+    border: 1px solid #c1c1c1;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+}
+
+input[type="submit"].btn_search {
+    width: 120px;
+    height: 32px;
+    background: #008eff;
+    border: 1px solid #008eff;
+    font-size: 16px;
+    margin-left: -5px;
+    color: white;
+}
+
+input[type="button"].btn_search:hover {
+    background: #007aff;
+}
+
+input[type="button"].btn_search:active {
+    background: #004ED0;
+}
+
+.user_manager_container .user_list,.user_manager_container .add-user{
+    margin: 0 auto;
+    width: 90%;
+    text-align: center;
+    padding: 30px;
+}
+
+.user_manager_container .user_list{
+    border: 1px solid #eaeaea;
+}
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    height: 44px;
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.table > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #ddd;
+}
+
+.table > caption + thead > tr:first-child > td, .table > caption + thead > tr:first-child > th, .table > colgroup + thead > tr:first-child > td, .table > colgroup + thead > tr:first-child > th, .table > thead:first-child > tr:first-child > td, .table > thead:first-child > tr:first-child > th {
+    border-top: 0
+}
+
+.table > tbody + tbody {
+    border-top: 2px solid #ddd
+}
+
+/* 输入框 */
+input[type="text"].input_text {
+    width: 100%;
+    height: 32px;
+    border: 1px solid #a1a1a1;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 20px;
+    font-size: 16px;
+}
+
+input[type="text"].input_text:focus{
+    border: 1px solid #38adff;
+}
+
+.page_number{
+    height: 60px;
+    line-height: 60px;
+    text-align:left;
+}
+
+.page_number span{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #666666;
+    font-size: 14px;
+}
+
+.page_number a{
+    border: 1px solid #d1d1d1;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #007aff;
+    font-size: 14px;
+}
+
+.page_number .page_num{
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    display: inline-block;
+    text-align: center;
+}
+
+.page_number .page_prep,.page_number .page_next{
+    width: 80px;
+    height:32px;
+    line-height: 32px;
+    display: inline-block;
+    text-align: center;
+}
+
+.page_number a:hover{
+    border: 1px solid #007aff;
+    color: #007aff;
+}
+
+.page_number a:active{
+    color: #ff0000;
+}
+
+.import_container{
+    margin-top: 30px;
+    height: 60px;
+}
+
+.form-group{
+    margin-bottom:15px;
+    float: right;
+    margin-left: 50px;
+}
+
+.form-group .form-group-label,.form-group .form-group-upload{
+    float: left;
+    padding-left: 10px;
+}
+
+.file_name{
+    height: 100%;
+    line-height: 38px;
+    vertical-align: middle;
+    font-size: 16px;
+    color: #666666;
+}
+
+.file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 30px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+
+/* button */
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px
+}
+
+.btn.active:focus, .btn:active:focus, .btn:focus {
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px
+}
+
+.btn:focus, .btn:hover {
+    color: #333;
+    text-decoration: none
+}
+
+.btn.active, .btn:active {
+    background-image: none;
+    outline: 0;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125)
+}
+
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+    pointer-events: none;
+    cursor: not-allowed;
+    filter: alpha(opacity=65);
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #38adff;
+    border-color: #357ebd;
+    height:38px;
+
+}
+
+.btn-primary.active, .btn-primary:active, .btn-primary:focus, .btn-primary:hover, .open > .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #3071a9;
+    border-color: #285e8e
+}
+
+.btn-primary.active, .btn-primary:active, .open > .dropdown-toggle.btn-primary {
+    background-image: none
+}
+
+.btn-primary.disabled, .btn-primary.disabled.active, .btn-primary.disabled:active, .btn-primary.disabled:focus, .btn-primary.disabled:hover, .btn-primary[disabled], .btn-primary[disabled].active, .btn-primary[disabled]:active, .btn-primary[disabled]:focus, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary.active, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:hover {
+    background-color: #38adff;
+    border-color: #357ebd
+}

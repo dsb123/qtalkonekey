@@ -1,0 +1,92 @@
+@charset "UTF-8";
+/** Common **/
+.pc-mod-login {
+    min-width: 1200px;
+    background: #0f1014;
+    padding-top: 47px;
+    padding-bottom: 47px; }
+
+.pc-mod-login-describe,
+.pc-mod-login-describe p {
+    text-align: center;
+    font-size: 19px;
+    color: #fff;
+    line-height: 40px; }
+
+.pc-mod-login-input {
+    display: block;
+    width: 440px;
+    height: 45px;
+    border: 1px solid #b7b8b9;
+    color: #fff;
+    background: #0f1014;
+    margin: 30px auto;
+    text-align: center;
+    padding-left: 15px; }
+
+.pc-mod-login-input:focus {
+    text-align: left; }
+
+.pc-mod-login .pc-g-signup {
+    display: block;
+    float: none;
+    margin: 30px auto 0;
+    width: 164px;
+    height: 46px;
+    line-height: 46px;
+    font-size: 16px;
+    border: none;
+    background: #09f;
+    border-radius: 4px;
+    color: #fff;
+    text-align: center;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    -ms-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out; }
+.pc-mod-login .pc-g-signup:hover {
+    color: #09f;
+    background: #fff; }
+
+
+.pc-mod-partners {
+    padding-bottom: 36px; }
+
+.pc-mod-partners-list {
+    margin-top: 28px; }
+
+.pc-mod-partners-item{
+    display: inline-block;
+    width: 130px;
+    height: 56px;
+    margin: 0 17px;
+    background-size: 130px auto;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+}
+
+.index-partner-fanwei {
+    margin-left: -5px; }
+
+.index-partner-yanhuang {
+    margin: 0 28px; }
+
+.index-partner-wanhu {
+    margin: 0 32px; }
+
+.index-partner-wps {
+    margin: 0 20px; }
+
+.index-partner-donghua {
+    margin: 0 10px; }
+
+.index-partner-qidi {
+    margin: 0 16px; }
+
+.pc-mod-partners-item, .index-partner-yanhuang, .index-partner-wanhu, .index-partner-wps, .index-partner-fanwei, .index-partner-donghua, .index-partner-qidi {
+    display: inline-block;
+    width: 104px;
+    height: 44px;
+    margin: 0 13px;
+    background-size: 104px auto; }

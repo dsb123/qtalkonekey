@@ -1,0 +1,143 @@
+body, div, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+fieldset, lengend, button, input, textarea, form,/* form elements 表单元素 */
+th, td { /* table elements 表格元素 */
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body{
+    background: #eaeaea;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    overflow: hidden;
+}
+
+.config_container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.config_group {
+    padding-top: 20px;
+    overflow: hidden;
+}
+
+.config_item {
+    height: 60px;
+    line-height: 60px;
+    background: white;
+    vertical-align:middle;
+    overflow: hidden;
+    display: block;
+}
+
+.config_item .cell {
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+.config_item .btn_delete {
+    width: 132px;
+    height: 100%;
+    float: left;
+    background: #ff0000;
+    color: #ffffff;
+}
+
+.border_top_line{
+    border-top: #d1d1d1 solid 1px;
+}
+
+.border_bottom_line{
+    border-bottom: #d1d1d1 solid 1px;
+}
+
+.config_item .config_label{
+    /*width: 100%;*/
+    /*height: 100%;*/
+    font-size: 16px;
+    color: #666666;
+    margin-left: 15px;
+    float: left;
+    line-height: 60px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.config_item .icon_div {
+    width: 44px;
+    height: 44px;
+    margin-left: 15px;
+    float: left;
+    text-align: center;
+}
+
+.config_item .icon_div span{
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    margin: auto;
+}
+
+.config_item .icon_div .icon_img{
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+}
+
+.config_item .config_arrow{
+    width: 20px;
+    height: 20px;
+    background:url(../images/arrow_down.png) no-repeat;
+    /*background-attachment: fixed;*/
+    -moz-background-size: 100% 100%;
+    background-size: 100% 100%;
+    background-position: center;
+    float: right;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.config_item .account_header{
+    width: 44px;
+    height: 44px;
+    margin-left: 15px;
+    padding-top: 5px;
+    border-radius: 22px;
+    float: left;
+}
+
+.config_item .user_item{
+    margin-left: 75px;
+    text-align: left;
+}
+
+.config_item .user_item .user_name{
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    color: #666666;
+    height: 30px;
+    line-height: 35px;
+}
+
+.config_item .user_item .user_id{
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    color: #a1a1a1;
+    height: 29px;
+    line-height: 24px;
+}
+

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+docker run -e TZ=Asia/Shanghai -v /srv --name SWIFT_DATA busybox
+
+# start up swift
+docker run -d \
+       --net=host --name=swift \
+       --restart=always \
+	-e TZ=Asia/Shanghai\
+       --volumes-from SWIFT_DATA -t morrisjobke/docker-swift-onlyone

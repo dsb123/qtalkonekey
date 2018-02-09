@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="../css/blue.css" rel="stylesheet">
+  <script src="../scripts/jquery-3.2.1.js"></script>
+  <script src="../scripts/jquery.icheck.js"></script>
+</head>
+<body>
+<!--<div class="demo-list clear">-->
+  <ul>
+    <li>
+      <input type="radio" id="aaa" name="aaa">
+      <label for="aaa">男</label>
+    </li>
+    <li>
+      <input type="radio" id="bbb" name="aaa" checked>
+      <label for="input-4">女</label>
+    </li>
+  </ul>
+  <script>
+      $(document).ready(function(){
+          var callbacks_list = $('.demo-callbacks ul');
+          function callback_log(id, type) {
+//              $('.demo-callbacks ul').prepend('<li><span>#' + id + '</span> is ' + type.toLowerCase() + '</li>');
+          };
+          $('input').bind('is.Created is.Clicked is.Changed is.Checked is.Unchecked is.Disabled is.Enabled is.Destroyed', function(event){
+              callback_log(this.id, event.namespace);
+          }).iCheck({
+              radioClass: 'iradio_square-blue',
+              increaseArea: '20%'
+          });
+      });
+  </script>
+<!--</div>-->
+</body>
+</html>

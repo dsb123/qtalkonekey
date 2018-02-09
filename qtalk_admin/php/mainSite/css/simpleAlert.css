@@ -1,0 +1,30 @@
+.simpleAlert{position: fixed;z-index: 10000000;}
+.simpleAlertShelter{position: fixed;width: 100%;height: 100%;top:0;left:0;background-color: #000;opacity: 0.3;filter:alpha(opacity=30);}
+.simpleAlertBody{position:fixed;display: none;width: 476px;height: 216px;top:50%;left:50%;margin:-188px 0 0 -238px;opacity:0;border: 1px solid #948497;background-color: #fff;}
+.simpleAlertBodyClose{position: absolute;width: 14px;height: 14px;top:10px;right: 10px;padding: 5px;cursor: pointer;z-index: 9;}
+.simpleAlertBodyTitle{position: absolute;top:20%;width:100%;height:48px;line-height:48px;overflow-y:auto;left: 0;text-align: center;font-size: 24px;color: #333;}
+.simpleAlertBodyContent{position: absolute;top:42%;width:96%;height:48px;overflow-y:auto;left: 2%;text-align: center;font-size: 12px;font-weight: 600;color: #999;}
+.simpleAlertBtn{position:absolute;width: 100px;height: 34px;bottom:13%;border:none;/*1px solid #bfbfbf;*/cursor:pointer;/*border-radius: 5px;*/color: #fff;font-size: 16px;}
+.msgBoardAlertBtn{position:absolute;width: 100px;height: 34px;bottom:1.8rem;border:none;/*1px solid #bfbfbf;*/cursor:pointer;/*border-radius: 5px;*/color: #fff;font-size: 16px;}
+.simpleAlertBtn1{background-color: #41CF94;left: 25%;}
+.simpleAlertBtn2{background-color: #eeeeee;color: #616161;right: 25%;}
+.simpleAlertBtn2:hover{/*background-color:rgba(248,248,248,25);color: #333;*/right: 25%;opacity: 0.85;}
+.onlyOne{width: 200px;height: 36px;left: 138px;}
+
+.addAlertBodyTitle{position: absolute;top:10%;width:100%;height:32px;line-height:32px;overflow-y:auto;left: 0;text-align: center;font-size: 20px;color: #666;}
+.addAlertBodyContent{position: absolute;top:25%;width:96%;height:80px;overflow-y:auto;left: 2%;text-align: center;font-size: 12px;font-weight: 600;color: #999;}
+.alert_field{width: 60%; height: 28px;border: 1px solid #c1c1c1;font-size: 16px;padding-left: 10px;padding-right: 10px;background: none;margin-top: 10px;}
+
+
+.msgBoardAlertBodyTitle{position: absolute;top:2rem;width:100%;height:32px;line-height:32px;overflow-y:auto;left: 0;text-align: center;font-size: 20px;color: #666;}
+.msgBoardBody{position:fixed;display: none;width: 476px;height: 380px;top:50%;left:50%;margin:-188px 0 0 -238px;opacity:0;border: 1px solid #948497;background-color: #fff;}
+.msgBoardBodyContent{position: absolute;top:4.5rem;width:96%;height:260px;overflow-y:auto;left: 2%;text-align: center;font-size: 12px;font-weight: 600;color: #999;}
+.alert_textarea{vertical-align: middle;width: 60%;height: 80px;border: 1px solid #c1c1c1;font-size: 16px;padding: 10px;background: none;margin-top: 10px;resize:none;}
+
+
+/* 选择按钮 */
+.simpleSelectButtonAlert{position: fixed;z-index: 10000000;}
+.simpleSelectButtonAlertBody{position:fixed;display: none;width: 300px;height: 200px;top:50%;left:50%;margin:-150px 0 0 -180px;opacity:0;border: 1px solid #948497;background-color: #fff;text-align: center;}
+.simpleSelectButtonAlertBtn{position:relative;width: 80%;height: 50px;border:none;/*1px solid #bfbfbf;*/cursor:pointer;/*border-radius: 5px;*/color: #fff;font-size: 16px;}
+.simpleSelectButtonAlertBtn1{background-color: #41CF94;margin:0 auto; top:45px;}
+.simpleSelectButtonAlertBtn2{background-color: #41CF94;margin:0 auto; top:65px;}

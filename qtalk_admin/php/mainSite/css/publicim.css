@@ -1,0 +1,59 @@
+
+.base_function {
+    /*background-color: #00adee;*/
+    min-width: 1200px;
+    padding-top: 30px;
+}
+.base_function .l-wrapper {
+    /*background-color: red;*/
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto; }
+.base_function p{
+    padding-top: 8px;
+    font-size: 16px;
+    text-align: left;
+}
+.base_function .message1 {
+
+}
+.base_function .message2 {
+    padding-top: 20px;
+}
+.base_function_content{
+    text-align: center;
+}
+.base_function_message {
+    width: 40%;
+    display: inline-block;
+    /*float: left;*/
+}
+div.base_function_image {
+    width: 40%;
+    /*height: 250px;*/
+    vertical-align: middle;
+    text-align: center;
+    /*float: left;*/
+    display: inline-block;
+}
+
+.features_function {
+    padding-top: 30px;
+}
+.features_function .l-wrapper {
+    /*background-color: red;*/
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto; }
+
+
+.base_function h2,
+.features_function h2 {
+    font-size: 34px;
+    color: #3f4f7c;
+}
+.base_function h3,
+.features_function h3{
+    font-size: 20px;
+    text-align: left;
+}

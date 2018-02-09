@@ -1,0 +1,60 @@
+html,body{
+    height: 100%;
+}
+#container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+}
+header{
+    flex: 0 0 auto;
+}
+.main{
+    flex: 1 0 auto;
+    min-width: 1200px;
+}
+footer{
+    flex: 0 0 auto;
+}
+
+.download_content{
+    width: 20%;
+    padding-bottom: 50px;
+    margin: 0 auto;
+    display: inline-block;
+    vertical-align: top;
+}
+.download_group {
+    float: left;
+    text-align: left;
+    width: 100%;
+    margin-top: 50px;
+    display: block;
+}
+
+.client_guide{
+    padding-left: 50px;
+    width: 50%;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    margin: 0 auto;
+    display: inline-block;
+    text-align: left;
+}
+
+.title{
+    font-size: 24px;
+}
+
+.content{
+    font-size: 16px;
+}
+
+.client_guide2{
+    margin: 0 auto;
+    /*width: 100%;*/
+    padding-left: 3rem;
+    padding-bottom: 60px;
+    text-align: left;
+}

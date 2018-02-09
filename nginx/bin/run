@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+real_path=`dirname $(readlink -f $0)`
+base_path=`dirname $real_path`
+
+docker run \
+       --name=nginx \
+       -d \
+       --net=host \
+       --restart=always \
+        -e TZ=Asia/Shanghai \
+       -v ${base_path}/conf/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf \
+       -v ${base_path}/conf/conf.d:/usr/local/openresty/nginx/conf/conf.d \
+       -v ${base_path}/lua_app:/usr/local/openresty/nginx/lua_app \
+       -v ${base_path}/logs:/usr/local/openresty/nginx/logs \
+       openresty/openresty:trusty

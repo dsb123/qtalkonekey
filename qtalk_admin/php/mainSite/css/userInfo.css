@@ -1,0 +1,182 @@
+@import "reset.css";
+
+html,body{
+    height: 100%;
+}
+#container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+}
+header{
+    flex: 0 0 auto;
+}
+.main{
+    flex: 1 0 auto;
+}
+footer{
+    flex: 0 0 auto;
+}
+
+h1{
+    font-size: 18px;
+}
+
+.userinfo_container{
+    width: 1200px;
+    height: 100%;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 0 auto;
+}
+
+.userinfo_container .item_group {
+    width: 56%;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.userinfo_container .item_label, .item_input, .item_button {
+    margin: auto;
+    height: 100%;
+}
+
+.userinfo_container .item_label {
+    width: 30%;
+    float: left;
+    text-align: right;
+    font-size: 16px;
+    color: #666666;
+}
+
+.userinfo_container .item_input {
+    width: 60%;
+    max-width: 60%;
+    display: inline-block;
+}
+
+.userinfo_container .item_extend {
+    width: 10%;
+    min-width: 10%;
+    float: right;
+    text-align: left;
+}
+
+.userinfo_container input[type="text"]{
+    width: 90%;
+    height: 40px;
+    border: 1px solid #a1a1a1;
+    border-radius: 18px;
+    padding-left: 40px;
+    padding-right: 20px;
+    font-size: 14px;
+}
+
+.userinfo_container input[type="text"]:focus, input[type="password"]:focus {
+    border: 1px solid #38adff;
+}
+
+.icon-mobile { background: url(../images/password.png) -1px 0/24px auto no-repeat; }
+.icon-domain { background: url(../images/domain.png) -1px 0/24px auto no-repeat; }
+.icon-email { background: url(../images/email_address.png) -1px 0/24px auto no-repeat; }
+.icon-user-name { background: url(../images/username.png) -1px 0/24px auto no-repeat; }
+.icon-nick-name { background: url(../images/nick_name.png) -1px 0/24px auto no-repeat; }
+.icon-department { background: url(../images/department.png) -1px 0/24px auto no-repeat; }
+.icon-mobile,.icon-domain,.icon-pwd,.icon-cpwd,.icon-picCode,.icon-mobileCode,.icon-email,.icon-user-name,.icon-nick-name,.icon-department { background-position: 10px 7px; }
+
+.gender ul {
+    float: right;
+    white-space: nowrap;
+}
+.gender ul:first-child {
+    float: left;
+}
+.gender ul li {
+    position: relative;
+    padding: 0 0 18px 42px;
+    display: inline-block;
+    width: 100px;
+}
+
+.gender ul .icheckbox_square-blue,
+.gender ul .iradio_square-blue {
+    position: absolute;
+    top: 13px;
+    left: 30%;
+}
+
+/* button */
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px
+}
+
+.btn.active:focus, .btn:active:focus, .btn:focus {
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px
+}
+
+.btn:focus, .btn:hover {
+    color: #333;
+    text-decoration: none
+}
+
+.btn.active, .btn:active {
+    background-image: none;
+    outline: 0;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125)
+}
+
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+    pointer-events: none;
+    cursor: not-allowed;
+    filter: alpha(opacity=65);
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #38adff;
+    border-color: #357ebd
+}
+
+.btn-primary.active, .btn-primary:active, .btn-primary:focus, .btn-primary:hover, .open > .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #3071a9;
+    border-color: #285e8e
+}
+
+.btn-primary.active, .btn-primary:active, .open > .dropdown-toggle.btn-primary {
+    background-image: none
+}
+
+.btn-primary.disabled, .btn-primary.disabled.active, .btn-primary.disabled:active, .btn-primary.disabled:focus, .btn-primary.disabled:hover, .btn-primary[disabled], .btn-primary[disabled].active, .btn-primary[disabled]:active, .btn-primary[disabled]:focus, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary.active, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:hover {
+    background-color: #38adff;
+    border-color: #357ebd
+}
+
+.btn-login {
+    width: 80%;
+    height: 40px;
+    border-radius: 20px;
+}

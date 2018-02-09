@@ -1,0 +1,114 @@
+var myScroll,
+	pullDownEl, pullDownOffset,
+	pullUpEl, pullUpOffset;
+var	needUp=true;
+var 	needDown = true;
+
+var upTime,downTime,fromU,toU;
+
+function pullDownAction () {
+ if(!needDown||downTime==0)
+ {
+    myScroll.refresh();
+    return;
+ }
+ $.ajax({
+            type: "GET",
+            url: "main_controller.php?action=single_details&method=showDownMore&from="+fromU+"&to="+toU+"&time="+downTime,
+            dataType: "json",
+            success: function (msg) {   //json数据类型
+ 		if(!msg.ret || msg.c == null){
+                    needDown=false;
+                    myScroll.refresh();
+                    return false;
+                }
+               	$("#m_con").prepend(msg.c);
+		downTime = msg.t
+                if(downTime ==0) needDown = false;
+                myScroll.refresh();
+                return false;
+            }
+        });
+}
+
+function pullUpAction () {
+ if(!needUp||upTime ==0)
+ {
+    myScroll.refresh();
+    return;
+ }
+ $.ajax({
+            type: "GET",
+            url: "main_controller.php?action=single_details&method=showUpMore&from="+fromU+"&to="+toU+"&time="+upTime,
+            dataType: "json",
+            success: function (msg) {   //json数据类型
+ 		if(!msg.ret || msg.c == null){
+                    myScroll.refresh();
+		    needUp = false;
+                    return false;
+                }
+               	$("#m_con").prepend(msg.c);
+		needUp = msg.t
+                if(needUp ==0) needUp = false;
+                myScroll.refresh();
+                return false;
+            }
+        });
+}
+
+function loaded() {
+	pullDownEl = document.getElementById('pullDown');
+	pullDownOffset = pullDownEl.offsetHeight;
+	pullUpEl = document.getElementById('pullUp');	
+	pullUpOffset = pullUpEl.offsetHeight;
+	
+	myScroll = new iScroll('wrapper', {
+		useTransition: true,
+		topOffset: pullDownOffset,
+		onRefresh: function () {
+			if (pullDownEl.className.match('loading')) {
+				pullDownEl.className = '';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉加载更多';
+			} else if (pullUpEl.className.match('loading')) {
+				pullUpEl.className = '';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多';
+			}
+		},
+		onScrollMove: function () {
+			if (this.y > 5 && !pullDownEl.className.match('flip')) {
+				pullDownEl.className = 'flip';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = '释放刷新';
+				this.minScrollY = 0;
+			} else if (this.y < 5 && pullDownEl.className.match('flip')) {
+				pullDownEl.className = '';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉加载更多';
+				this.minScrollY = -pullDownOffset;
+			} else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+				pullUpEl.className = 'flip';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = '释放刷新';
+				this.maxScrollY = this.maxScrollY;
+			} else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
+				pullUpEl.className = '';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多';
+				this.maxScrollY = pullUpOffset;
+			}
+		},
+		onScrollEnd: function () {
+			if (pullDownEl.className.match('flip')) {
+				pullDownEl.className = 'loading';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Loading...';				
+				pullDownAction();	// Execute custom function (ajax call?)
+			} else if (pullUpEl.className.match('flip')) {
+				pullUpEl.className = 'loading';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Loading...';				
+				pullUpAction();	// Execute custom function (ajax call?)
+			}
+		}
+	});
+	
+	setTimeout(function () { document.getElementById('wrapper').style.left = '0'; }, 800);
+}
+
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);

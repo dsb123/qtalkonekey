@@ -1,0 +1,139 @@
+@import "reset.css";
+
+html,body{
+    height: 100%;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+}
+
+header{
+    flex: 0 0 auto;
+}
+
+.main{
+    flex: 1 0 auto;
+}
+
+footer{
+    flex: 0 0 auto;
+}
+
+h1{
+    font-size: 34px;
+}
+
+.index_container {
+    width: 100%;
+    min-width: 1200px;
+    text-align: center;
+}
+
+.split-line{
+    height: 60px;
+}
+
+.banner {
+    width: 100%;
+    min-width: 1200px;
+    height: 500px;
+    background-image: url("../images/banner_img.png");
+    -moz-background-image: url("../images/banner_img.png");
+    -o-background-image: url("../images/banner_img.png");
+    -webkit-background-image: url("../images/banner_img.png");
+    -webkit-background-size: 100% 500px;
+    background-size: auto 500px;
+    background-position: center;
+}
+
+/*服务模式*/
+.server_mode{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: 0 auto;
+}
+
+.server_mode .title{
+    font-size: 34px;
+}
+
+.server_mode .desc{
+    font-size: 16px;
+    color: #999999;
+}
+
+.server_mode .content{
+    text-align: center;
+}
+
+.server_mode .content .content_item{
+    width: 285px;
+    display: inline-block;
+    margin: 0 auto;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.server_mode .content .content_item .content_item_title{
+    font-size: 24px;
+    margin-top: 6px;
+}
+
+.server_mode .content .content_item .content_item_desc{
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+/*基础功能*/
+.base_function{
+    width: 100%;
+    min-width: 1200px;
+    height: 720px;
+    background-image: url("../images/base_function.png");
+    -moz-background-image: url("../images/base_function.png");
+    -o-background-image: url("../images/base_function.png");
+    -webkit-background-image: url("../images/base_function.png");
+    -webkit-background-size: 100% 720px;
+    background-size: 100% 720px;
+    background-position: center;
+}
+
+/*特色功能*/
+.features{
+    width: 100%;
+    min-width: 1200px;
+    height: 720px;
+    background-image: url("../images/features.png");
+    -moz-background-image: url("../images/features.png");
+    -o-background-image: url("../images/features.png");
+    -webkit-background-image: url("../images/features.png");
+    -webkit-background-size: 100% 720px;
+    background-size: 100% 720px;
+    background-position: center;
+}
+
+/*安全稳定*/
+.safety_stability{
+    width: 100%;
+    min-width: 1200px;
+    height: 720px;
+    background-image: url("../images/safety_stability.png");
+    -moz-background-image: url("../images/safety_stability.png");
+    -o-background-image: url("../images/safety_stability.png");
+    -webkit-background-image: url("../images/safety_stability.png");
+    -webkit-background-size: 100% 720px;
+    background-size: 100% 720px;
+    background-position: center;
+}
+
+/*合作案例*/
+.cooperation_case{
+    width: 100%;
+    min-width: 1200px;
+    height: 500px;
+    background-image: url("../images/cooperation_case.png");
+}

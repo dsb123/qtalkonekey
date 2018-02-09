@@ -1,0 +1,65 @@
+#!/bin/sh
+
+real_path=`dirname $(readlink -f $0)`
+base_path=`dirname $real_path`
+
+ERL=erl
+NAME=-name
+NODE=ejb_http_server@<?qtalk qtalk_cowboy_server>
+ERL_OPTS=""
+EBIN_PATH="-pa ${base_path}/ebin -pa ${base_path}/deps/*/ebin"
+
+HOME=${base_path}
+
+export HOME
+
+start()
+{
+
+	$ERL $NAME $NODE $EBIN_PATH -detached -s ejb_http_server -smp  enable  -hidden -config ${base_path}/config/lager -config ${base_path}/config/ejb_http_server
+
+    sleep 3
+
+    if is_running; then
+        echo "ejahttp start successfully"
+    else
+        echo "ejahttp start failed"
+    fi
+}
+
+debug() 
+{
+    if is_running; then
+                $ERL $NAME TEST_NODE -remsh $NODE
+        else
+                echo "ejb_http_server is stop"
+                exit 1
+        fi
+}
+
+is_running()
+{
+    PID=`ps auxww |grep -w beam |grep "name $NODE" |awk '{print $2}'`
+        if [ -z "$PID" ]; then
+            return 1
+        else
+            return 0
+        fi
+}
+
+help()
+{
+    echo "Usage: $0 {start}"
+}
+
+case $1 in 
+    'start') 
+        start
+        ;;
+    'help')
+         help
+         ;;
+    *)
+         help
+         exit 1
+esac
