@@ -204,13 +204,13 @@ if [ $input = "YES" ]; then
 		sudo docker load < images/erlang_17.5.tar || true
 		sudo docker load < images/erlang_19.3.tar || true
 	else
-		cd ${workdir}/dockfile/erlang1705
+		cd ${workdir}/dockerfile/erlang1705
 		sudo docker build -t erlang:17.5 .
 
-		cd ${workdir}/dockfile/erlang1903
+		cd ${workdir}/dockerfile/erlang1903
 		sudo docker build -t erlang:19.3 .
 
-		cd ${workdir}/dockfile/php5.6-pgsql
+		cd ${workdir}/dockerfile/php5.6-pgsql
 		sudo docker build -t php:5.6-apache-pgsql-redis .
 	fi
 
