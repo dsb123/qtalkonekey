@@ -70,7 +70,7 @@
 
 ## 方法1(不需要在线下载docker  镜像)
 
-将安装包qtalkonekey-master.zip和images.zip拷贝到服务器上，然后执行以下命令(默认会创建两个用户(test和test_admin，密码是test)：
+将安装包qtalkonekey-master.zip和images.zip拷贝到服务器上，放到同一个目录下，然后在改目录下，执行以下命令(默认会创建两个用户(test和test_admin，密码是test)：
 - qtalkonekey-master.zip：在github点击download zip下载该项目
 - images.zip：从[这里](http://qt.qunar.com/downloads/qtalkonekey/images)下载打包好的镜像
 
